@@ -12,8 +12,8 @@ const roles = [
 
 const projects = [
   { id: 1, name: 'Trip to space' },
-  { id: 1, name: 'Assembly Ikea furniture' },
-  { id: 1, name: 'Datumize Zentral' },
+  { id: 2, name: 'Assembly Ikea furniture' },
+  { id: 3, name: 'Datumize Zentral' },
 ]
 
 export { users, roles, projects }

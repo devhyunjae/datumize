@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProjectsDropdown> renders correctly 1`] = `
+<div>
+  <div>
+    2. Choose a project
+  </div>
+  <div>
+    <select>
+      <option
+        value={1}
+      >
+        project 1
+      </option>
+      <option
+        value={2}
+      >
+        project 2
+      </option>
+    </select>
+  </div>
+</div>
+`;
