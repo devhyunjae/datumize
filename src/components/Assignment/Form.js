@@ -1,10 +1,21 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Card, Button, Toaster, Position } from '@blueprintjs/core'
+
 import UserDropDown from './UsersDropdown'
 import ProjectsDropDown from './ProjectsDropdown'
 import RolesDropDown from './RolesDropdown'
 import * as actions from '../../actions/users'
+
+const Container = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+`
 
 class Form extends PureComponent {
   static propTypes = {
@@ -26,7 +37,7 @@ class Form extends PureComponent {
     const { successMessage } = this.props
 
     if (successMessage && (prevProps.successMessage !== successMessage)) {
-      alert(successMessage)
+      this.toaster.show({ message: successMessage })
     }
   }
 
@@ -53,14 +64,23 @@ class Form extends PureComponent {
     })
   }
 
+  toasterHandler = (ref) => {
+    this.toaster = ref
+  }
+
   render() {
     return (
-      <div>
-        <UserDropDown setSelectedUser={this.setSelectedUser} />
-        <ProjectsDropDown setSelectedProject={this.setSelectedProject} />
-        <RolesDropDown setSelectedRole={this.setSelectedRole} />
-        <button type="button" onClick={this.onClick}>Save</button>
-      </div>
+      <Card elevation={Card.ELEVATION_TWO}>
+        <Container>
+          <UserDropDown setSelectedUser={this.setSelectedUser} />
+          <ProjectsDropDown setSelectedProject={this.setSelectedProject} />
+          <RolesDropDown setSelectedRole={this.setSelectedRole} />
+          <Button type="button" onClick={this.onClick} className="pt-fill">
+            Save
+          </Button>
+        </Container>
+        <Toaster position={Position.TOP} ref={this.toasterHandler} />
+      </Card>
     )
   }
 }

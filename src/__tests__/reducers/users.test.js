@@ -4,6 +4,7 @@ import {
   FETCH_USERS_FAILURE,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAILURE,
+  RESET_SUCCESS_MESSAGE,
 } from '../../constants/users'
 
 describe('users reducer', () => {
@@ -65,6 +66,25 @@ describe('users reducer', () => {
       users: [],
       loading: false,
       error: errorMessage,
+    })
+  })
+
+  it('handles RESET_SUCCESS_MESSAGE', () => {
+    const givenState = {
+      users: [],
+      loading: false,
+      error: null,
+      success: 'Update Success!',
+    }
+
+    // when
+    const result = reducer(givenState, { payload: undefined, type: RESET_SUCCESS_MESSAGE })
+    // then
+    expect(result).toEqual({
+      users: [],
+      loading: false,
+      error: null,
+      success: null,
     })
   })
 })

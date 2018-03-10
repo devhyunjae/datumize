@@ -3,6 +3,7 @@ import {
   FETCH_USERS_FAILURE,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAILURE,
+  RESET_SUCCESS_MESSAGE,
 } from '../constants/users'
 
 const initialState = {
@@ -37,6 +38,11 @@ export default (state = initialState, { payload, type }) => {
       }
     case UPDATE_USER_SUCCESS:
       return updateUserSuccessStates(state, payload)
+    case RESET_SUCCESS_MESSAGE:
+      return {
+        ...state,
+        success: null,
+      }
     default:
       return state
   }

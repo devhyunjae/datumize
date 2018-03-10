@@ -5,6 +5,7 @@ import {
   FETCH_USERS_FAILURE,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAILURE,
+  RESET_SUCCESS_MESSAGE,
 } from '../constants/users'
 
 const fetchUsersRequest = () => ({
@@ -31,6 +32,11 @@ const updateUserFailure = error => ({
   error,
 })
 
+const resetSuccessMessage = payload => ({
+  type: RESET_SUCCESS_MESSAGE,
+  payload,
+})
+
 const fetchUsers = () => (dispatch) => {
   dispatch(fetchUsersRequest())
 
@@ -42,5 +48,6 @@ const fetchUsers = () => (dispatch) => {
 const updateUser = params => dispatch => api.updateUser(params)
   .then(() => dispatch(updateUserSuccess(params)))
   .catch(error => dispatch(updateUserFailure(error)))
+  .then(() => dispatch(resetSuccessMessage()))
 
 export { fetchUsers, updateUser }

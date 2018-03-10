@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as actions from '../../actions/projects'
+import Container from './Container'
+import Select from './Select'
 
 class ProjectsDropdown extends PureComponent {
   static propTypes = {
@@ -45,14 +47,14 @@ class ProjectsDropdown extends PureComponent {
 
   render() {
     return (
-      <div>
-        <div>2. Choose a project</div>
-        <div>
+      <Container>
+        <h5>2. Choose a project</h5>
+        <Select>
           <select onChange={this.changeEvent}>
             { this.renderOptions() }
           </select>
-        </div>
-      </div>
+        </Select>
+      </Container>
     )
   }
 }

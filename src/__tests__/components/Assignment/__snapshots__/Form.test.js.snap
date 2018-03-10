@@ -1,61 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Form /> renders correctly 1`] = `
-<div>
-  <div>
-    <div>
-      1. Choose a user
-    </div>
-    <div>
-      <select
-        onChange={[Function]}
-      >
-        <option
-          name="John Doe"
-          value={1}
-        >
-          John Doe
-        </option>
-      </select>
-    </div>
-  </div>
-  <div>
-    <div>
-      2. Choose a project
-    </div>
-    <div>
-      <select
-        onChange={[Function]}
-      >
-        <option
-          value={1}
-        >
-          Surf House in Canary Island
-        </option>
-      </select>
-    </div>
-  </div>
-  <div>
-    <div>
-      3. Choose a role
-    </div>
-    <div>
-      <select
-        onChange={[Function]}
-      >
-        <option
-          value={1}
-        >
-          CEO
-        </option>
-      </select>
-    </div>
-  </div>
-  <button
-    onClick={[Function]}
-    type="button"
+<div
+  className="pt-card pt-elevation-0"
+  onClick={undefined}
+>
+  <div
+    className="sc-bwzfXH gNjnI"
   >
-    Save
-  </button>
+    <div
+      className="sc-bdVaJa ePGVPP"
+    >
+      <h5>
+        1. Choose a user
+      </h5>
+      <div
+        className="pt-select pt-fill"
+      >
+        <select
+          onChange={[Function]}
+        >
+          <option
+            name="John Doe"
+            value={1}
+          >
+            John Doe
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="sc-bdVaJa ePGVPP"
+    >
+      <h5>
+        2. Choose a project
+      </h5>
+      <div
+        className="pt-select pt-fill"
+      >
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value={1}
+          >
+            Surf House in Canary Island
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="sc-bdVaJa ePGVPP"
+    >
+      <h5>
+        3. Choose a role
+      </h5>
+      <div
+        className="pt-select pt-fill"
+      >
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value={1}
+          >
+            CEO
+          </option>
+        </select>
+      </div>
+    </div>
+    <button
+      className="pt-button pt-fill"
+      disabled={undefined}
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      type="button"
+    >
+      <span>
+        Save
+      </span>
+    </button>
+  </div>
 </div>
 `;

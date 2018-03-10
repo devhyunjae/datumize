@@ -1,11 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ProjectsDropdown> renders correctly 1`] = `
-<div>
-  <div>
+<div
+  className="sc-bdVaJa ePGVPP"
+>
+  <h5>
     2. Choose a project
-  </div>
-  <div>
+  </h5>
+  <div
+    className="pt-select pt-fill"
+  >
     <select
       onChange={[Function]}
     >

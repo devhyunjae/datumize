@@ -22,4 +22,20 @@ describe('user actions', () => {
         })
     })
   })
+
+  describe('when update users', () => {
+    it('dispatches UPDATE_USER_SUCCESS and RESET_SUCCESS_MESSAGE', () => {
+      // given
+      const params = { user: { id: 1, name: 'a' }, project: { id: 1, name: 'b' }, role: { id: 1, name: 'c' } }
+      const expected = [{ payload: params, type: 'UPDATE_USERS_SUCCESS' }, { payload: undefined, type: 'RESET_SUCCESS_MESSAGE' }]
+
+      // when
+      const store = mockStore({ users: [] })
+      return store.dispatch(actions.updateUser(params))
+        .then(() => {
+          // then
+          expect(store.getActions()).toEqual(expected)
+        })
+    })
+  })
 })

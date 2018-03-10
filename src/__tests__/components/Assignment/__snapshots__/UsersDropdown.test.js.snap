@@ -1,11 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<UsersDropdown> renders correctly 1`] = `
-<div>
-  <div>
+<div
+  className="sc-bdVaJa ePGVPP"
+>
+  <h5>
     1. Choose a user
-  </div>
-  <div>
+  </h5>
+  <div
+    className="pt-select pt-fill"
+  >
     <select
       onChange={[Function]}
     >

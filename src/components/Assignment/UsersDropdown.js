@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+
 import * as actions from '../../actions/users'
+import Container from './Container'
+import Select from './Select'
 
 class UsersDropdown extends PureComponent {
   static propTypes = {
@@ -45,14 +48,14 @@ class UsersDropdown extends PureComponent {
 
   render() {
     return (
-      <div>
-        <div>1. Choose a user</div>
-        <div>
+      <Container>
+        <h5>1. Choose a user</h5>
+        <Select>
           <select onChange={this.changeEvent}>
             { this.renderOptions() }
           </select>
-        </div>
-      </div>
+        </Select>
+      </Container>
     )
   }
 }
