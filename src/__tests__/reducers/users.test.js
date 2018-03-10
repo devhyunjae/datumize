@@ -37,8 +37,9 @@ describe('users reducer', () => {
     })
   })
 
-  it('handles UPDATE_USER_SUCCESS', () => {
+  it('handles UPDATE_USER_SUCCESS when projects not exists', () => {
     // given
+    const users = [{ id: 1, name: 'Steve Jobs' }]
     const payload = {
       user: { id: 1, name: 'Steve Jobs' },
       project: { id: 1, name: 'iPhone 20' },
@@ -46,10 +47,82 @@ describe('users reducer', () => {
     }
     const expectSuccessMessage = 'Steve Jobs has been assigned to iPhone 20 project as a CEO'
     // when
-    const result = reducer(undefined, { payload, type: UPDATE_USER_SUCCESS })
+    const result = reducer({
+      users,
+      error: null,
+      loading: false,
+    }, {
+      payload,
+      type: UPDATE_USER_SUCCESS,
+    })
     // then
     expect(result).toEqual({
-      users: [],
+      users: [{
+        id: 1,
+        name: 'Steve Jobs',
+        projects: [{
+          id: 1,
+          name: 'iPhone 20',
+          role: {
+            id: 1,
+            name: 'CEO',
+          },
+        }],
+      }],
+      loading: false,
+      error: null,
+      success: expectSuccessMessage,
+    })
+  })
+
+  it('handles UPDATE_USER_SUCCESS when projects field exists', () => {
+    // given
+    const users = [{
+      id: 1,
+      name: 'Steve Jobs',
+      projects: [{
+        id: 1,
+        name: 'iPhone 20',
+        role: { id: 2, name: 'Intern' },
+      }, {
+        id: 2,
+        name: 'Macbook Ultra',
+        role: { id: 1, name: 'CEO' },
+      }],
+    }]
+    const payload = {
+      user: { id: 1, name: 'Steve Jobs' },
+      project: { id: 1, name: 'iPhone 20' },
+      role: { id: 3, name: 'Surfer' },
+    }
+    const expectSuccessMessage = 'Steve Jobs has been assigned to iPhone 20 project as a Surfer'
+    // when
+    const result = reducer({
+      users,
+      error: null,
+      loading: false,
+    }, {
+      payload,
+      type: UPDATE_USER_SUCCESS,
+    })
+    // then
+    expect(result).toEqual({
+      users: [{
+        id: 1,
+        name: 'Steve Jobs',
+        projects: [{
+          id: 2,
+          name: 'Macbook Ultra',
+          role: { id: 1, name: 'CEO' },
+        }, {
+          id: 1,
+          name: 'iPhone 20',
+          role: {
+            id: 3,
+            name: 'Surfer',
+          },
+        }],
+      }],
       loading: false,
       error: null,
       success: expectSuccessMessage,
