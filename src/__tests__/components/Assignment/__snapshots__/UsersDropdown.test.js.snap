@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UsersDropdown> renders correctly 1`] = `
+<div>
+  <div>
+    1. Choose a user
+  </div>
+  <div>
+    <select>
+      <option
+        value={1}
+      >
+        test01
+      </option>
+      <option
+        value={2}
+      >
+        test02
+      </option>
+    </select>
+  </div>
+</div>
+`;
