@@ -2,4 +2,6 @@ import { users } from './fixtures'
 
 const fetchUsers = () => Promise.resolve(users)
 
-export { fetchUsers }
+const updateUser = () => Promise.resolve({ result: 'ok' })
+
+export { fetchUsers, updateUser }

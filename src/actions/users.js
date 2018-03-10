@@ -3,6 +3,8 @@ import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE,
 } from '../constants/users'
 
 const fetchUsersRequest = () => ({
@@ -19,6 +21,16 @@ const fetchUsersFailure = error => ({
   error,
 })
 
+const updateUserSuccess = payload => ({
+  type: UPDATE_USER_SUCCESS,
+  payload,
+})
+
+const updateUserFailure = error => ({
+  type: UPDATE_USER_FAILURE,
+  error,
+})
+
 const fetchUsers = () => (dispatch) => {
   dispatch(fetchUsersRequest())
 
@@ -27,4 +39,10 @@ const fetchUsers = () => (dispatch) => {
     .catch(error => dispatch(fetchUsersFailure(error)))
 }
 
-export { fetchUsers }
+const updateUser = (params) => (dispatch) => {
+  return api.updateUser(params)
+    .then(() => dispatch(updateUserSuccess(params)))
+    .catch(error => dispatch(updateUserFailure(error)))
+}
+
+export { fetchUsers, updateUser }
