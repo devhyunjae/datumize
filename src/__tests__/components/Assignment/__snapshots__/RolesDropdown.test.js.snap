@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RolesDropdown> renders correctly 1`] = `
+<div>
+  <div>
+    3. Choose a role
+  </div>
+  <div>
+    <select>
+      <option
+        value={1}
+      >
+        role 1
+      </option>
+      <option
+        value={2}
+      >
+        role 2
+      </option>
+    </select>
+  </div>
+</div>
+`;
