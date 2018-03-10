@@ -14,10 +14,8 @@ const fetchRolesFailure = error => ({
   error,
 })
 
-const fetchRoles = () => (dispatch) => {
-  return api.fetchRoles()
-    .then(roles => dispatch(fetchRolesSuccess(roles)))
-    .catch(error => dispatch(fetchRolesFailure(error)))
-}
+const fetchRoles = () => dispatch => api.fetchRoles()
+  .then(roles => dispatch(fetchRolesSuccess(roles)))
+  .catch(error => dispatch(fetchRolesFailure(error)))
 
 export { fetchRoles }

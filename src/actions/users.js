@@ -39,10 +39,8 @@ const fetchUsers = () => (dispatch) => {
     .catch(error => dispatch(fetchUsersFailure(error)))
 }
 
-const updateUser = (params) => (dispatch) => {
-  return api.updateUser(params)
-    .then(() => dispatch(updateUserSuccess(params)))
-    .catch(error => dispatch(updateUserFailure(error)))
-}
+const updateUser = params => dispatch => api.updateUser(params)
+  .then(() => dispatch(updateUserSuccess(params)))
+  .catch(error => dispatch(updateUserFailure(error)))
 
 export { fetchUsers, updateUser }

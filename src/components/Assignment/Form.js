@@ -9,6 +9,11 @@ import * as actions from '../../actions/users'
 class Form extends PureComponent {
   static propTypes = {
     updateUser: PropTypes.func.isRequired,
+    successMessage: PropTypes.string,
+  }
+
+  static defaultProps = {
+    successMessage: null,
   }
 
   state = {
@@ -60,11 +65,9 @@ class Form extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    successMessage: state.users.success
-  }
-}
+const mapStateToProps = state => ({
+  successMessage: state.users.success,
+})
 
 export default connect(
   mapStateToProps,

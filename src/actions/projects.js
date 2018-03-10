@@ -14,10 +14,8 @@ const fetchProjectsFailure = error => ({
   error,
 })
 
-const fetchProjects = () => (dispatch) => {
-  return api.fetchProjects()
-    .then(projects => dispatch(fetchProjectsSuccess(projects)))
-    .catch(error => dispatch(fetchProjectsFailure(error)))
-}
+const fetchProjects = () => dispatch => api.fetchProjects()
+  .then(projects => dispatch(fetchProjectsSuccess(projects)))
+  .catch(error => dispatch(fetchProjectsFailure(error)))
 
 export { fetchProjects }

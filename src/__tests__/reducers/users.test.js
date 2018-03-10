@@ -51,7 +51,7 @@ describe('users reducer', () => {
       users: [],
       loading: false,
       error: null,
-      success: expectSuccessMessage
+      success: expectSuccessMessage,
     })
   })
 

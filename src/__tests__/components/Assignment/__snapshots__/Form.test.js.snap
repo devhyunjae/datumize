@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> renders correctly 1`] = `
+<div>
+  <div>
+    <div>
+      1. Choose a user
+    </div>
+    <div>
+      <select
+        onChange={[Function]}
+      >
+        <option
+          name="John Doe"
+          value={1}
+        >
+          John Doe
+        </option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <div>
+      2. Choose a project
+    </div>
+    <div>
+      <select
+        onChange={[Function]}
+      >
+        <option
+          value={1}
+        >
+          Surf House in Canary Island
+        </option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <div>
+      3. Choose a role
+    </div>
+    <div>
+      <select
+        onChange={[Function]}
+      >
+        <option
+          value={1}
+        >
+          CEO
+        </option>
+      </select>
+    </div>
+  </div>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Save
+  </button>
+</div>
+`;

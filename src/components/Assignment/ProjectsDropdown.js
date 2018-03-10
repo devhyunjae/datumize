@@ -57,11 +57,9 @@ class ProjectsDropdown extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return  ({
-    projects: state.projects.projects,
-  })
-}
+const mapStateToProps = state => ({
+  projects: state.projects.projects,
+})
 
 export { ProjectsDropdown }
 
