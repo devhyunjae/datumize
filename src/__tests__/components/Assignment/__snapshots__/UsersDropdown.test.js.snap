@@ -6,13 +6,17 @@ exports[`<UsersDropdown> renders correctly 1`] = `
     1. Choose a user
   </div>
   <div>
-    <select>
+    <select
+      onChange={[Function]}
+    >
       <option
+        name="test01"
         value={1}
       >
         test01
       </option>
       <option
+        name="test02"
         value={2}
       >
         test02

@@ -7,11 +7,30 @@ class RolesDropdown extends PureComponent {
   static propTypes = {
     fetchRoles: PropTypes.func.isRequired,
     roles: PropTypes.array.isRequired,
+    setSelectedRole: PropTypes.func,
+  }
+
+  static defaultProps = {
+    setSelectedRole: () => {},
   }
 
   componentDidMount() {
     const { fetchRoles } = this.props
     fetchRoles()
+  }
+
+  componentDidUpdate() {
+    const { roles, setSelectedRole } = this.props
+    if (roles.length > 0) {
+      const selectedRole = roles[0]
+      setSelectedRole(selectedRole)
+    }
+  }
+
+  changeEvent = (event) => {
+    const { roles, setSelectedRole } = this.props
+    const selectedRole = roles.find(role => role.id === parseInt(event.target.value, 0))
+    setSelectedRole(selectedRole)
   }
 
   renderOptions() {
@@ -29,7 +48,7 @@ class RolesDropdown extends PureComponent {
       <div>
         <div>3. Choose a role</div>
         <div>
-          <select>
+          <select onChange={this.changeEvent}>
             { this.renderOptions() }
           </select>
         </div>

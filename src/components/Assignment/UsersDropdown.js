@@ -7,6 +7,11 @@ class UsersDropdown extends PureComponent {
   static propTypes = {
     fetchUsers: PropTypes.func.isRequired,
     users: PropTypes.array.isRequired,
+    setSelectedUser: PropTypes.func,
+  }
+
+  static defaultProps = {
+    setSelectedUser: () => {},
   }
 
   componentDidMount() {
@@ -14,11 +19,25 @@ class UsersDropdown extends PureComponent {
     fetchUsers()
   }
 
+  componentDidUpdate() {
+    const { users, setSelectedUser } = this.props
+    if (users.length > 0) {
+      const selectedUser = users[0]
+      setSelectedUser(selectedUser)
+    }
+  }
+
+  changeEvent = (event) => {
+    const { users, setSelectedUser } = this.props
+    const selectedUser = users.find(user => user.id === parseInt(event.target.value, 0))
+    setSelectedUser(selectedUser)
+  }
+
   renderOptions() {
     const { users } = this.props
 
     return users.map(user => (
-      <option value={user.id} key={user.id}>
+      <option value={user.id} key={user.id} name={user.name}>
         {user.name}
       </option>
     ))
@@ -29,7 +48,7 @@ class UsersDropdown extends PureComponent {
       <div>
         <div>1. Choose a user</div>
         <div>
-          <select>
+          <select onChange={this.changeEvent}>
             { this.renderOptions() }
           </select>
         </div>

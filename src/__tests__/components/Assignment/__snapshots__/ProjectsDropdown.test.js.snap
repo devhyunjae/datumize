@@ -6,7 +6,9 @@ exports[`<ProjectsDropdown> renders correctly 1`] = `
     2. Choose a project
   </div>
   <div>
-    <select>
+    <select
+      onChange={[Function]}
+    >
       <option
         value={1}
       >

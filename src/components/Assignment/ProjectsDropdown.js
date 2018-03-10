@@ -7,11 +7,30 @@ class ProjectsDropdown extends PureComponent {
   static propTypes = {
     fetchProjects: PropTypes.func.isRequired,
     projects: PropTypes.array.isRequired,
+    setSelectedProject: PropTypes.func,
+  }
+
+  static defaultProps = {
+    setSelectedProject: () => {},
   }
 
   componentDidMount() {
     const { fetchProjects } = this.props
     fetchProjects()
+  }
+
+  componentDidUpdate() {
+    const { projects, setSelectedProject } = this.props
+    if (projects.length > 0) {
+      const selectedProject = projects[0]
+      setSelectedProject(selectedProject)
+    }
+  }
+
+  changeEvent = (event) => {
+    const { projects, setSelectedProject } = this.props
+    const selectedProject = projects.find(project => project.id === parseInt(event.target.value, 0))
+    setSelectedProject(selectedProject)
   }
 
   renderOptions() {
@@ -29,7 +48,7 @@ class ProjectsDropdown extends PureComponent {
       <div>
         <div>2. Choose a project</div>
         <div>
-          <select>
+          <select onChange={this.changeEvent}>
             { this.renderOptions() }
           </select>
         </div>
